@@ -1,6 +1,8 @@
 import Router from 'koa-router'
-module.exports = function (router) {
-    router.get('/', (req, res) => {
-        console.log('111111111')
-    })
-}
+const router = new Router()
+
+router.get('/', (req, res) => {
+    console.log('111111111')
+})
+
+export default router.routes()

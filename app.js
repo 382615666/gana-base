@@ -1,13 +1,10 @@
-const Koa = require('koa')
-const fs = require('fs')
-const Router = require('koa-router');
-
+import Koa from 'koa'
+import fs from 'fs'
 const app = new Koa()
-const router = new Router()
-
+// babel-preset-env babel
 const files = fs.readdirSync(`${__dirname}/routers`)
 files.forEach(fileName => {
-    require(`${__dirname}/routers/${fileName}`)(router)
+    app.use(require(`${__dirname}/routers/${fileName}`).default)
 })
-app.use(router.routes())
+
 app.listen(process.env.port || 3000)
