@@ -1,0 +1,26 @@
+{
+  "name": "gana-base",
+  "version": "1.0.0",
+  "description": "个人网站后台",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development port=80 nodemon app.js",
+    "pro": "cross-env NODE_ENV=production port=80 node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/382615666/gana-base.git"
+  },
+  "author": "wangxianggan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/382615666/gana-base/issues"
+  },
+  "homepage": "https://github.com/382615666/gana-base#readme",
+  "dependencies": {
+    "cross-env": "^5.1.3",
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0",
+    "log4js": "^2.4.1"
+  }
+}
