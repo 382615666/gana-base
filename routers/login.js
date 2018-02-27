@@ -5,7 +5,8 @@ router.get('/login', (ctx, next) => {
     ctx.redirect('/login.html')
 })
 router.get('/login/:accout/:password', (ctx, next) => {
-    console.log(ctx.query)
-    console.log(ctx.querystring)
+    ctx.body = {
+        message: 'success'
+    }
 })
 export default router.routes()
