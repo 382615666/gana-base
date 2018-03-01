@@ -1,6 +1,6 @@
 import Koa from 'koa'
 import fs from 'fs'
-import Connection from './config/db'
+import Connection from './util/db'
 
 // 连接mongodb
 const connection = new Connection()

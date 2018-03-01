@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import db from './mongodb.config'
+import db from '../config/mongodb.config'
 
 export default class Connection {
     connect () {

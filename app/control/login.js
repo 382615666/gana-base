@@ -1,25 +1,22 @@
 import User from '../model/user'
-import jwt from 'jsonwebtoken'
-import key from '../../config/token-key'
+import util from '../../util/util'
+
+const getUser = async(ctx, next) => {
+    const user = await util.toPromise(callback => {
+        User.findOne(ctx.params, callback)
+    }).catch(err => {
+        ctx.body = {
+            err: err
+        }
+    })
+    user ? ctx.body = user : ctx.body = {err: '用户名或密码错误！'}
+}
+
+const toLogin = (ctx, next) => {
+    ctx.redirect('/login.html')
+}
 
 export default {
-    getUser () {
-        var token = jwt.sign({aa:1}, key, {
-            expiresIn: '2h'
-        })
-        console.log(token)
-        var t = jwt.verify(token, key)
-        console.log(t)
-        let user = new User({
-            account: 'admin',
-            password: '123456'
-        })
-        User.findOne({
-            account: 'admin',
-            password: '123456'
-        },(err, updatedTank) => {
-            console.log(err)
-            console.log(updatedTank)
-        })
-    }
+    getUser,
+    toLogin
 }

@@ -2,13 +2,8 @@ import Router from 'koa-router'
 import login from '../app/control/login'
 const router = new Router()
 
-router.get('/login', (ctx, next) => {
-    ctx.redirect('/login.html')
-})
-router.get('/login/:accout/:password', (ctx, next) => {
-    login.getUser()
-    ctx.body = {
-        message: 'success'
-    }
-})
+router.get('/login', login.toLogin)
+
+router.get('/login/:account/:password', login.getUser)
+
 export default router.routes()
