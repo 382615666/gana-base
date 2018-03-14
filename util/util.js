@@ -1,7 +1,7 @@
 const toPromise = async (func) => {
-    return await new Promise((res, rej) => {
+    return await new Promise((resolve, reject) => {
         func((err, data) => {
-            err ? rej(err) : res(data)
+            err ? reject(err) : resolve(data)
         })
     })
 }

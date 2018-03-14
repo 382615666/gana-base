@@ -16,7 +16,12 @@ const toLogin = (ctx, next) => {
     ctx.redirect('/login.html')
 }
 
+const toIndex = (ctx, next) => {
+    ctx.redirect('/index.html')
+}
+
 export default {
     getUser,
+    toIndex,
     toLogin
 }
