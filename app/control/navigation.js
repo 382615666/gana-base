@@ -1,7 +1,7 @@
 import Navigation from '../model/navigation'
 import util from '../../util/util'
 
-const getNavition = async(ctx, next) => {
+const getNavigation = async(ctx, next) => {
     let v = new Navigation({
         name: '博客'
     })
@@ -16,5 +16,5 @@ const getNavition = async(ctx, next) => {
 }
 
 export default {
-    getNavition
+    getNavigation
 }
