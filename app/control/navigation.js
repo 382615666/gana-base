@@ -1,20 +1,13 @@
-import Navigation from '../model/navigation'
-import util from '../../util/util'
-
+import service from '../service/navigation'
 const getNavigation = async(ctx, next) => {
-    let v = new Navigation({
-        name: '博客'
-    })
-    const navigation = await util.toPromise(callback => {
-        Navigation.find({}, callback)
-    }).catch(err => {
-        ctx.body = {
-            err: err
-        }
-    })
-   ctx.body = user
+
+}
+
+const addNavigation = async(ctx, next) => {
+    const a = await service.addNavigation(ctx.request.body)
 }
 
 export default {
-    getNavigation
+    getNavigation,
+    addNavigation
 }

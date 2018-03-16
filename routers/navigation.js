@@ -3,10 +3,7 @@ import navigation from '../app/control/navigation'
 const router = new Router()
 
 router.get('/navigation', navigation.getNavigation)
-router.get('/admin/navigation', function (ctx ,next) {
-    console.log(ctx.params)
-    ctx.body = '111111'
-})
+router.post('/admin/navigation', navigation.addNavigation)
 
 
 export default router.routes()
