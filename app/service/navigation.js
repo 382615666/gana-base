@@ -1,17 +1,16 @@
 import Navigation from '../model/navigation'
-import util from '../../util/util'
 
-const getNavigation = async (params) => {
+const countNavigation = (params = {}) => Navigation.find(params).count()
 
-}
+const getNavigation = (params = {}, skip = 0, limit = 10) => Navigation.find(params).skip(skip).limit(limit)
 
-const addNavigation = async (params) => {
-    console.log(new Navigation(params).save())
-    return await util.toPromise(callback => {
-        new Navigation(params).save(callback)
-    })
-}
+const addNavigation = (params) => new Navigation(params).save()
+
+const removeNavigation = (params) => new Navigation(params).remove()
 
 export default {
-    addNavigation
+    countNavigation,
+    addNavigation,
+    removeNavigation,
+    getNavigation
 }

@@ -1,22 +1,22 @@
 import service from '../service/navigation'
-const getNavigation = async(ctx, next) => {
-
+import util from '../../util/util'
+const getNavigation = async (ctx, next) => {
+    const page = util.parseToInt(ctx.query, ['pageSize', 'currentPage'])
+    const data = await service.getNavigation({}, page.pageSize * (page.currentPage - 1), page.pageSize)
+    page.total = await service.countNavigation()
+    ctx.body = {data, page}
 }
-
-const addNavigation = async(ctx, next) => {
+const addNavigation = async (ctx, next) => {
     const result = await service.addNavigation(ctx.request.body)
-    if (result) {
-        ctx.body = {
-            data: result
-        }
-    } else {
-        ctx.body = {
-            err: '新增失败'
-        }
-    }
+    ctx.body = result ? {data: result} : {err: '新增失败'}
+}
+const removeNavigation = async (ctx, next) => {
+    const result = await service.removeNavigation(ctx.params)
+    ctx.body = result ? {data: result} : {err: '删除失败'}
 }
 
 export default {
     getNavigation,
+    removeNavigation,
     addNavigation
 }

@@ -1,5 +1,6 @@
 import {Schema} from 'mongoose'
 
 export default new Schema({
-    name: String
+    name: String,
+    rank: String
 })

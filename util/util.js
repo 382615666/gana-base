@@ -5,6 +5,11 @@ const toPromise = async (func) => {
         })
     })
 }
+const parseToInt = (obj, [...names]) => {
+    names.forEach(name => obj[name] = parseInt(obj[name]))
+    return obj
+}
 export default {
+    parseToInt,
     toPromise
 }
