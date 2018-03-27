@@ -21,10 +21,16 @@ const updateNavigation = async (ctx, next) => {
     const result = await service.updateNavigation(ctx.params, ctx.request.body)
     ctx.body = result ? {data: result} : {err: '修改失败'}
 }
+const getAllNavigation = async (ctx, next) => {
+    const data = await service.getAllNavigation(ctx.query)
+    ctx.body = {data}
+}
+
 
 export default {
     getNavigation,
     updateNavigation,
     removeNavigation,
+    getAllNavigation,
     addNavigation
 }

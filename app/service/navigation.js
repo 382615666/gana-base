@@ -5,6 +5,8 @@ const countNavigation = (params = {}) => Navigation.find(util.like(params, ['nam
 
 const getNavigation = (params = {}, skip = 0, limit = 10) => Navigation.find(util.like(params, ['name'])).skip(skip).limit(limit)
 
+const getAllNavigation = (params = {}) => Navigation.find(params)
+
 const addNavigation = (params) => new Navigation(params).save()
 
 const removeNavigation = (params) => new Navigation(params).remove()
@@ -16,5 +18,6 @@ export default {
     addNavigation,
     removeNavigation,
     updateNavigation,
+    getAllNavigation,
     getNavigation
 }
